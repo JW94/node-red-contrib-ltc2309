@@ -1,0 +1,119 @@
+<!-- init ltc2309 -->
+
+<script type="text/javascript">
+    RED.nodes.registerType('ltc2309init',{
+        category: 'ADC',
+        color: '#AFFE00',
+        defaults: {
+            name: {value:""},
+        },
+        inputs:1,
+        outputs:0,
+        icon: "light.png",
+        label: function() {
+            return this.name||"ltc2309init";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ltc2309init">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ltc2309init">
+    <p>A node to handle the ltc2309-ADC</p>
+</script>
+
+<!-- get adcx-Voltage ltc2309 -->
+
+<script type="text/javascript">
+    RED.nodes.registerType('ltc2309getVoltCh',{
+        category: 'ADC',
+        color: '#AFFE00',
+        defaults: {
+            name: {value:""},
+            channel: {value:"adc0",required:true},
+            mode: {value:"8",required:true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "light.png",
+        label: function() {
+            return this.name||"ltc2309getVoltCh";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ltc2309getVoltCh">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-channel"><i class="icon-tag"></i> Channel</label>
+        <select type="text" id="node-input-channel">
+            <option value="adc0">CH0</option>
+            <option value="adc1">CH1</option>
+            <option value="adc2">CH2</option>
+            <option value="adc3">CH3</option>
+            <option value="adc4">CH4</option>
+            <option value="adc5">CH5</option>
+            <option value="adc6">CH6</option>
+            <option value="adc7">CH7</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-mode"><i class="icon-tag"></i> Mode</label>
+        <select type="text" id="node-input-mode">
+            <option value="8">Unipolar</option>
+            <option value="0">Bipolar</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ltc2309getVoltCh">
+    <p>A node to get the latest converted value of a specific channel</p>
+</script>
+
+<!-- get adcAllChannel-Voltage ltc2309 -->
+
+<script type="text/javascript">
+    RED.nodes.registerType('ltc2309getVoltAllCh',{
+        category: 'ADC',
+        color: '#AFFE00',
+        defaults: {
+            name: {value:""},
+            mode: {value:"8",required:true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "light.png",
+        label: function() {
+            return this.name||"ltc2309getVoltAllCh";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ltc2309getVoltAllCh">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-mode"><i class="icon-tag"></i> Mode</label>
+        <select type="text" id="node-input-mode">
+            <option value="8">Unipolar</option>
+            <option value="0">Bipolar</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ltc2309getVoltAllCh">
+    <p>A node to get the latest converted value of all channels.
+    It will return an object with all latest values</p>
+</script>
